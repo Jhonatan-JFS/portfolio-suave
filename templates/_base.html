@@ -1,0 +1,27 @@
+{% load static %}
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#11162d">
+  <meta name="description" content="Portfólio de Jhonatan Furtado — projetos e desenvolvimento web.">
+  <title>{% block title %}Jhonatan Furtado · Portfólio{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <div class="ambient ambient-a" aria-hidden="true"></div>
+  <div class="ambient ambient-b" aria-hidden="true"></div>
+  <header class="site-header">
+    <nav class="container nav" aria-label="Navegação principal">
+      <a class="brand" href="{% url 'portfolio:inicio' %}" aria-label="Ir para o início"><span class="brand-symbol">J.</span><span>Jhonatan<span class="brand-dot">.</span></span></a>
+      <div class="nav-links"><a href="{% url 'portfolio:inicio' %}#sobre">Sobre</a><a href="{% url 'portfolio:inicio' %}#projetos">Projetos</a><a class="nav-contact" href="{% url 'portfolio:inicio' %}#contato">Contato <span aria-hidden="true">↗</span></a></div>
+    </nav>
+  </header>
+  <main>{% block content %}{% endblock %}</main>
+  <footer class="site-footer"><div class="container footer-inner"><span>© {% now "Y" %} Jhonatan Furtado.</span><span>Feito com Python, Django e atenção aos detalhes.</span></div></footer>
+</body>
+</html>

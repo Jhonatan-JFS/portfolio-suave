@@ -1,0 +1,13 @@
+{% extends "_base.html" %}
+{% block title %}{{ projeto.titulo }} · Jhonatan Furtado{% endblock %}
+{% block content %}
+<section class="container detail-page">
+  <a class="back-link" href="{% url 'portfolio:inicio' %}#projetos">← Voltar aos projetos</a>
+  <span class="section-kicker">PROJETO / DETALHES</span>
+  <h1>{{ projeto.titulo }}</h1>
+  <p class="lead">{{ projeto.resumo }}</p>
+  <div class="project-tags">{% for tecnologia in projeto.lista_tecnologias %}<span>{{ tecnologia }}</span>{% endfor %}</div>
+  <div class="detail-visual">{% if projeto.imagem %}<img src="{{ projeto.imagem.url }}" alt="{{ projeto.titulo }}">{% else %}<div class="project-placeholder"><span>✦</span><small>{{ projeto.titulo }}</small></div>{% endif %}</div>
+  <div class="detail-bottom"><div><h2>Sobre o projeto</h2><div class="detail-description">{{ projeto.descricao|linebreaks }}</div></div><div class="detail-links">{% if projeto.link_github %}<a class="button primary" href="{{ projeto.link_github }}" target="_blank" rel="noopener noreferrer">Código no GitHub ↗</a>{% endif %}{% if projeto.link_demo %}<a class="button ghost" href="{{ projeto.link_demo }}" target="_blank" rel="noopener noreferrer">Abrir demonstração ↗</a>{% endif %}</div></div>
+</section>
+{% endblock %}
